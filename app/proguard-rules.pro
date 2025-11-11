@@ -19,3 +19,12 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Jangan pangkas JS bridge
+-keep class com.hakolab.o_present.MainActivity$BlobDownloader { *; }
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+# (opsional) keep WebView untuk debug yang lebih ramah
+-dontwarn android.webkit.**
